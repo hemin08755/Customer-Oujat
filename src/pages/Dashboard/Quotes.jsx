@@ -7,7 +7,7 @@ import {
 } from "@mui/material";
 import React, { useState } from "react";
 import ShipperDashboard from "../../components/Sidebar";
-
+import Navbar from "../../components/Navbar";
 import SearchIcon from "@mui/icons-material/Search";
 import filter from "../../assets/logo/filter.svg";
 
@@ -17,6 +17,9 @@ import PrivateRequests from "./QMS/PrivateRequests";
 import PickedQuotes from "./QMS/PickedQuote";
 import ExpiredRequests from "./QMS/ExpiredRequests";
 import RejectedQuotes from "./QMS/RejectedQuotes";
+import NewRequest from "./QMS/NewRequest";
+
+import { useNavigate } from "react-router-dom";
 
 export default function Quotes(props) {
   const [search, setSearch] = useState("");
@@ -30,6 +33,8 @@ export default function Quotes(props) {
     { label: "Rejected Quotes", value: "rejected", path: "/rejected" },
   ];
 
+  const navigate = useNavigate();
+  const [fixedSidebar] = useState(false);
   return (
     <Box sx={{ display: "flex" }}>
       <ShipperDashboard />
@@ -41,7 +46,7 @@ export default function Quotes(props) {
           flexDirection: "column",
         }}
       >
-        {/* <Navbar fixed={fixedSidebar} /> */}
+        <Navbar fixed={fixedSidebar} />
         {/*  */}
 
         <Grid
@@ -138,6 +143,7 @@ export default function Quotes(props) {
 
               <Grid size="auto">
                 <Box
+                  onClick={() => navigate("/newrequest")}
                   sx={{
                     width: 149,
                     height: 48,
@@ -147,6 +153,7 @@ export default function Quotes(props) {
                     justifyContent: "center",
                     gap: "11px",
                     bgcolor: "#000000",
+                    cursor: "pointer",
                   }}
                 >
                   <Box
@@ -212,7 +219,8 @@ export default function Quotes(props) {
             {activeTab === "private" && <PrivateRequests />}
             {activeTab === "picked" && <PickedQuotes />}
             {activeTab === "expired" && <ExpiredRequests />}
-            {activeTab === "rejected" && <RejectedQuotes />}{" "}
+            {activeTab === "rejected" && <RejectedQuotes />}
+            {activeTab === "newrequest" && <NewRequest />}{" "}
           </Box>
         </Box>
 

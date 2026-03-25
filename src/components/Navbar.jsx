@@ -1,260 +1,371 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
-  Container,
-  Grid,
   Typography,
-  Button,
-  TextField,
-  InputAdornment,
+  IconButton,
+  Avatar,
+  Menu,
+  MenuItem,
 } from "@mui/material";
-import SearchIcon from "@mui/icons-material/Search";
-import ShipperDashboard from "./Sidebar";
-import Navbar from "./Navbar";
-import image02 from "../assets/images/img2.svg";
-import Filter from "../assets/logo/Frame.png";
 
-function Services() {
-  // ✅ Services Data Array
-  const servicesData = [
-    {
-      id: 1,
-      title: "Criselox Logistic Limited",
-      city: "Mumbai, India",
-      destination: "Doha, Saudi Arabia",
-      price: "$25500.00 / Kg",
-      rating: "4.0",
-      image: image02,
-    },
-    {
-      id: 2,
-      title: "Criselox Logistic Limited",
-      city: "Mumbai, India",
-      destination: "Doha, Saudi Arabia",
-      price: "$25500.00 / Kg",
-      rating: "4.0",
-      image: image02,
-    },
-    {
-      id: 3,
-      title: "Criselox Logistic Limited",
-      city: "Mumbai, India",
-      destination: "Doha, Saudi Arabia",
-      price: "$25500.00 / Kg",
-      rating: "4.0",
-      image: image02,
-    },
-    {
-      id: 4,
-      title: "Criselox Logistic Limited",
-      city: "Mumbai, India",
-      destination: "Doha, Saudi Arabia",
-      price: "$25500.00 / Kg",
-      rating: "4.0",
-      image: image02,
-    },
-  ];
+import TranslateIcon from "@mui/icons-material/Translate";
+import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import user from "../assets/logo/user.svg";
+import Frame from "../assets/logo/Frame.svg";
+import Frame1 from "../assets/logo/Frame.svg";
+import { useNavigate } from "react-router-dom";
+import ButtonBase from "@mui/material/ButtonBase";
 
-  // ✅ Reusable Card Component
-  const ServiceCard = ({ data }) => {
-    return (
-      <Box
-        sx={{
-          border: "1px solid #EAECF0",
-          borderRadius: "12px",
-          p: 2,
-          display: "flex",
-          flexDirection: "column",
-          gap: 2,
-          backgroundColor: "#fff",
-        }}
-      >
-        {/* Image */}
-        <Box
-          component="img"
-          src={data.image}
-          alt="service"
-          sx={{
-            width: "100%",
-            height: 192,
-            borderRadius: "10px",
-            objectFit: "cover",
-          }}
-        />
+export default function Navbar() {
+  const [avatarSrc] = React.useState(undefined);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+  const navigate = useNavigate();
 
-        {/* Title */}
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
-          <Typography
-            sx={{
-              font: "Plus Jakarta Sans, sans-serif",
-              fontWeight: 600,
-              fontSize: { lg: "19px", md: "19px", sm: "19px", xs: "19px" },
-              lineHeight: "100%",
-              fontStyle: "SemiBold",
-              color: "#000000",
-            }}
-          >
-            {data.title}
-          </Typography>
+  const handleOpen = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => setAnchorEl(null);
 
-          <Typography fontSize="14px">⭐ {data.rating}</Typography>
-        </Box>
+  //  const handleAvatarChange = (event) => {
+  //   const file = event.target.files?.[0];
+  //   if (file) {
+  //     // Read the file as a data URL
+  //     const reader = new FileReader();
+  //     reader.onload = () => {
+  //       setAvatarSrc(reader.result);
+  //     };
+  //     reader.readAsDataURL(file);
+  //   }
+  // };
+  const [profileAnchorEl, setProfileAnchorEl] = useState(null);
+  const profileOpen = Boolean(profileAnchorEl);
 
-        {/* Locations */}
-        <Typography fontSize="14px" color="#667085">
-          {data.city} → {data.destination}
-        </Typography>
+  const handleProfileOpen = (event) => {
+    setProfileAnchorEl(event.currentTarget);
+  };
 
-        {/* Price & Rating */}
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
-          <Typography fontWeight={600} color="#5F7388">
-            From
-          </Typography>
-          <Typography fontWeight={600} color="#000000">
-            {data.price}
-          </Typography>
-        </Box>
-      </Box>
-    );
+  const handleProfileClose = () => {
+    setProfileAnchorEl(null);
   };
 
   return (
-    <Box sx={{ display: "flex" }}>
-      <ShipperDashboard />
-
+    <>
       <Box
         sx={{
+          display: "flex",
+          flexDirection: "column",
           flexGrow: 1,
-          width: { sm: `calc(100% - 260px)` },
+          width: "100%",
         }}
       >
-        <Navbar />
-
-        <Container maxWidth="xl" sx={{ mt: -4 }}>
-          {/* Header */}
+        <Box
+          sx={{
+            flexGrow: 1,
+            display: "flex",
+            flexDirection: "column",
+            transition: "all 0.4s ease",
+          }}
+        >
           <Box
             sx={{
+              height: 88,
+              bgcolor: "#FFFFFF",
+              borderBottom: "3px solid #F1F2F3",
               display: "flex",
-              justifyContent: "space-between",
               alignItems: "center",
-              flexWrap: "wrap",
-
-              gap: "16px",
-              mb: 3,
+              justifyContent: "space-between",
+              px: { lg: 3, md: 2, sm: 2, xs: 1.5 },
             }}
           >
-            <Box sx={{ width: "519px" }}>
-              <Typography fontWeight={700} fontSize="22px">
-                My Services
-                <span style={{ color: "#FC5722" }}>
-                  ({servicesData.length})
-                </span>
-              </Typography>
-            </Box>
-
-            {/* Search */}
-            <TextField
-              placeholder="Search"
-              size="small"
+            <Typography
               sx={{
-                width: 280,
-
-                "& .MuiOutlinedInput-root": {
-                  borderRadius: "8px",
+                fontWeight: 700,
+                fontSize: {
+                  lg: "26px",
+                  md: "22px",
+                  sm: "18px",
+                  xs: "14px",
                 },
+                whiteSpace: "nowrap",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
               }}
-              InputProps={{
-                startAdornment: (
-                  <InputAdornment position="start">
-                    <SearchIcon />
-                  </InputAdornment>
-                ),
-              }}
-            />
+            >
+              Hello <span style={{ color: "#FC5722" }}>John Warner</span>
+            </Typography>
+
+            <Box
+              sx={{ display: "flex", alignItems: "center", gap: "12px", mr: 0 }}
+            >
+              <IconButton
+                onClick={handleOpen}
+                sx={{
+                  width: 48,
+                  height: 48,
+                  borderRadius: "40px",
+                  border: "1px solid #E7E9ED",
+                  bgcolor: "#F9FAFC",
+                }}
+              >
+                <TranslateIcon sx={{ fontSize: 20, color: "#344054" }} />
+              </IconButton>
+
+              <IconButton
+                sx={{
+                  width: 48,
+                  height: 48,
+                  borderRadius: "40px",
+                  border: "1px solid #E7E9ED",
+                  bgcolor: "#F9FAFC",
+                }}
+              >
+                <NotificationsNoneIcon
+                  sx={{ fontSize: 20, color: "#344054" }}
+                />
+              </IconButton>
+
+              <Box
+                onClick={handleProfileOpen}
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "4px",
+                  cursor: "pointer",
+                }}
+              >
+                <Box
+                  sx={{
+                    width: "80px",
+                    height: "48px",
+                    borderRadius: "8px",
+                    border: "1px solid #E7E9ED",
+                    justifyContent: "center",
+                    display: "flex",
+                    gap: "8px",
+                  }}
+                >
+                  <ButtonBase
+                    component="label"
+                    role={undefined}
+                    tabIndex={-1}
+                    aria-label="Avatar image"
+                    sx={{
+                      borderRadius: "40px",
+                      "&:has(:focus-visible)": {
+                        outline: "2px solid",
+                        outlineOffset: "2px",
+                        gap: "8px",
+                      },
+                    }}
+                  >
+                    <Avatar
+                      src={avatarSrc}
+                      alt="User Avatar"
+                      sx={{
+                        width: 32,
+                        height: 32,
+                        cursor: "pointer",
+                      }}
+                    />
+                    <KeyboardArrowDownIcon sx={{ color: "#667085" }} />
+                  </ButtonBase>
+                </Box>
+              </Box>
+            </Box>
+          </Box>
+
+          {/* PAGE CONTENT */}
+          <Box sx={{ flexGrow: 1, p: 3 }}>
+            {/* Your routes / page content */}
+          </Box>
+        </Box>
+
+        {/* LANGUAGE MENU */}
+        <Menu
+          anchorEl={anchorEl}
+          open={open}
+          onClose={handleClose}
+          anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+          transformOrigin={{ vertical: "top", horizontal: "right" }}
+          PaperProps={{
+            sx: {
+              mt: 1,
+              borderRadius: "12px",
+              minWidth: 140,
+              boxShadow: "0px 8px 24px rgba(16,24,40,0.12)",
+            },
+          }}
+        >
+          <MenuItem onClick={handleClose}>English</MenuItem>
+          <MenuItem onClick={handleClose}>Hindi</MenuItem>
+          <MenuItem onClick={handleClose}>Gujarati</MenuItem>
+        </Menu>
+
+        <Menu
+          anchorEl={profileAnchorEl}
+          open={profileOpen}
+          onClose={handleProfileClose}
+          anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+          transformOrigin={{ vertical: "top", horizontal: "right" }}
+          PaperProps={{
+            sx: {
+              mt: 1,
+              borderRadius: "12px",
+              minWidth: 180,
+              boxShadow: "0px 8px 24px rgba(16,24,40,0.12)",
+            },
+          }}
+        >
+          <MenuItem>
             <Box
               sx={{
-                width: { xs: "100%", sm: "106px", md: "106px", lg: "106px" },
-                height: "48px",
                 display: "flex",
-                alignItems: "center",
                 gap: "8px",
+                width: "177px",
+                height: "48px",
+                alignItems: "center",
                 border: "1px solid #E7E9ED",
                 borderRadius: "8px",
                 justifyContent: "center",
               }}
             >
-              <Box
-                component="img"
-                src={Filter}
-                alt="logo"
-                sx={{ width: 24, height: 24 }}
+              <Avatar
+                src={avatarSrc}
+                alt="User Avatar"
+                sx={{
+                  width: 32,
+                  height: 32,
+                  cursor: "pointer",
+                }}
               />
               <Typography
                 sx={{
                   font: "Plus Jakarta Sans, sans-serif",
-                  fontWeight: 600,
-                  fontSize: { lg: "14px", md: "14px", sm: "14px", xs: "14px" },
-                  lineHeight: "150%",
-                  fontStyle: "SemiBold",
-                  color: "#344054",
+                  fontWeight: 500,
+                  fontSize: "16px",
+                  lineHeight: "100%",
+                  letterSpacing: "0%",
+                  verticalAlign: "Bold",
+                  fontStyle: "Medium",
+                  color: "#000000",
                 }}
               >
-                Filters
+                John Warner
               </Typography>
             </Box>
-
-            {/* Add Button */}
-            <Button
+          </MenuItem>
+          <MenuItem onClick={handleProfileClose}>
+            <Box
+              onClick={() => navigate("/Profile")}
               sx={{
-                backgroundColor: "#FC5722",
-                width: "164px",
-                height: "48px",
-                color: "#fff",
-                borderRadius: "8px",
-                px: 3,
-                textTransform: "none",
-                "&:hover": { backgroundColor: "#e14e1f" },
+                display: "flex",
+                gap: "6px",
+                width: "177px",
+                height: "44px",
+                alignItems: "center",
               }}
             >
+              <Box
+                component="img"
+                src={user}
+                alt="logo"
+                sx={{
+                  width: 24,
+                  height: 24,
+                }}
+              />
               <Typography
                 sx={{
                   font: "Plus Jakarta Sans, sans-serif",
-                  fontWeight: 800,
-                  fontSize: { lg: "14px", md: "14px", sm: "14px", xs: "14px" },
+                  fontWeight: 700,
+                  fontSize: "18px",
                   lineHeight: "100%",
-                  fontStyle: "ExtraBold",
-                  color: "#FFFFFF",
+                  letterSpacing: "0%",
+                  verticalAlign: "Bold",
+                  fontStyle: "SemiBold",
+                  color: "#8F9DAC",
                 }}
               >
-                Add New Service
+                {" "}
+                My Profile
               </Typography>
-            </Button>
-          </Box>
+            </Box>
+          </MenuItem>
 
-          {/* Cards Grid */}
-          <Grid container spacing={3} justifyContent="center">
-            {servicesData.map((item) => (
-              <Grid xs={12} sm={6} md={6} lg={4} key={item.id}>
-                <ServiceCard data={item} />
-              </Grid>
-            ))}
-          </Grid>
-        </Container>
+          <MenuItem onClick={handleProfileClose}>
+            <Box
+              sx={{
+                display: "flex",
+                gap: "6px",
+                width: "177px",
+                height: "44px",
+                alignItems: "center",
+              }}
+            >
+              <Box
+                component="img"
+                src={Frame}
+                alt="logo"
+                sx={{
+                  width: 24,
+                  height: 24,
+                }}
+              />
+              <Typography
+                sx={{
+                  font: "Plus Jakarta Sans, sans-serif",
+                  fontWeight: 700,
+                  fontSize: "18px",
+                  lineHeight: "100%",
+                  letterSpacing: "0%",
+                  verticalAlign: "Bold",
+                  fontStyle: "SemiBold",
+                  color: "#8F9DAC",
+                }}
+              >
+                Go to <span style={{ color: "#FC5722" }}> Oujat.com</span>
+              </Typography>
+            </Box>
+          </MenuItem>
+          <MenuItem>
+            <Box
+              sx={{
+                display: "flex",
+                gap: "6px",
+                width: "177px",
+                height: "44px",
+                alignItems: "center",
+              }}
+            >
+              <Box
+                component="img"
+                src={Frame1}
+                alt="logo"
+                sx={{
+                  width: 24,
+                  height: 24,
+                }}
+              />
+              <Typography
+                sx={{
+                  font: "Plus Jakarta Sans, sans-serif",
+                  fontWeight: 700,
+                  fontSize: "18px",
+                  lineHeight: "100%",
+                  letterSpacing: "0%",
+                  verticalAlign: "Bold",
+                  fontStyle: "SemiBold",
+                  color: "#8F9DAC",
+                }}
+              >
+                Help
+              </Typography>
+            </Box>
+          </MenuItem>
+        </Menu>
       </Box>
-    </Box>
+    </>
   );
 }
-
-export default Services;

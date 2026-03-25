@@ -162,6 +162,8 @@ export default function SubscriptionIndividual() {
           sx={{
             height: { md: 108, lg: 108, xs: 150 },
             width: "100%",
+            display: "flex",
+            flexFlow: "column",
             gap: "32px",
           }}
         >
@@ -269,8 +271,6 @@ export default function SubscriptionIndividual() {
               gap: "24px",
               display: "flex",
               justifyContent: "right",
-
-              mt: { md: 4, xs: 8 },
             }}
           >
             <Card

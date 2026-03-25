@@ -15,6 +15,19 @@ import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 
+import india from "../../../assets/logo/india.svg";
+import qatar from "../../../assets/logo/qatar.svg";
+import uk from "../../../assets/logo/uk.svg";
+import vietnam from "../../../assets/logo/vietnam.svg";
+import sriLanka from "../../../assets/logo/sriLanka.svg";
+import saudi from "../../../assets/logo/saudi.svg";
+import doha from "../../../assets/logo/doha.svg";
+
+import air from "../../../assets/logo/air.svg";
+import rail from "../../../assets/logo/rail.svg";
+import road from "../../../assets/logo/road.svg";
+import sea from "../../../assets/logo/sea.svg";
+
 export default function PrivateRequests() {
   const [rows, setRows] = useState(10);
   const [page, setPage] = useState(1);
@@ -55,11 +68,130 @@ export default function PrivateRequests() {
       submitOn: "23/11/2024 01:00 AM",
       agent: "Chris from Apex Global Logistics",
       origin: "Mumbai, India",
+      originLogo: india,
       destination: "Doha, Saudi Arabia",
+      destinationLogo: doha,
       mode: "Air",
+      modeLogo: air,
       category: "Barrels",
       cargo: "FCL",
-      quotes: "0/5",
+    },
+    {
+      requestId: "0000009",
+      submitOn: "23/11/2024 01:00 AM",
+      agent: "Dan from DNV Transport Services",
+      origin: "Al Rayyan, Qatar",
+      originLogo: qatar,
+      destination: "Doha, Saudi Arabia",
+      destinationLogo: saudi,
+      mode: "Rail",
+      modeLogo: rail,
+      category: "Barrels",
+      cargo: "LCL",
+    },
+    {
+      requestId: "0000008",
+      submitOn: "23/11/2024 01:00 AM",
+      agent: "Chris from Apex Global Logistics",
+      origin: "London, UK",
+      originLogo: uk,
+      destination: "Doha, Saudi Arabia",
+      destinationLogo: saudi,
+      mode: "Road",
+      modeLogo: road,
+      category: "Barrels",
+      cargo: "IRR",
+    },
+    {
+      requestId: "0000007",
+      submitOn: "23/11/2024 01:00 AM",
+      agent: "Chris from Apex Global Logistics",
+      origin: "Hanoi, Vietnam",
+      originLogo: vietnam,
+      destination: "Colombo, Sri Lanka",
+      destinationLogo: sriLanka,
+      mode: "Sea",
+      modeLogo: sea,
+      category: "Barrels",
+      cargo: "FCL",
+    },
+    {
+      requestId: "0000006",
+      submitOn: "23/11/2024 01:00 AM",
+      agent: "Chris from Apex Global Logistics",
+      origin: "Mumbai, India",
+      originLogo: india,
+      destination: "Doha, Saudi Arabia",
+      destinationLogo: doha,
+      mode: "Air",
+      modeLogo: air,
+      category: "Barrels",
+      cargo: "FCL",
+    },
+    {
+      requestId: "0000005",
+      submitOn: "23/11/2024 01:00 AM",
+      agent: "Chris from Apex Global Logistics",
+      origin: "Mumbai, India",
+      originLogo: india,
+      destination: "Doha, Saudi Arabia",
+      destinationLogo: doha,
+      mode: "Air",
+      modeLogo: air,
+      category: "Barrels",
+      cargo: "FCL",
+    },
+    {
+      requestId: "0000004",
+      submitOn: "23/11/2024 01:00 AM",
+      agent: "Chris from Apex Global Logistics",
+      origin: "Mumbai, India",
+      originLogo: india,
+      destination: "Doha, Saudi Arabia",
+      destinationLogo: doha,
+      mode: "Rail",
+      modeLogo: rail,
+      category: "Barrels",
+      cargo: "FCL",
+    },
+    {
+      requestId: "0000003",
+      submitOn: "23/11/2024 01:00 AM",
+      agent: "Chris from Apex Global Logistics",
+      origin: "Mumbai, India",
+      originLogo: india,
+      destination: "Doha, Saudi Arabia",
+      destinationLogo: doha,
+      mode: "Road",
+      modeLogo: road,
+      category: "Barrels",
+      cargo: "FCL",
+    },
+    {
+      requestId: "0000002",
+      submitOn: "23/11/2024 01:00 AM",
+      agent: "Chris from Apex Global Logistics",
+      origin: "Mumbai, India",
+      originLogo: india,
+      destination: "Doha, Saudi Arabia",
+      destinationLogo: doha,
+      mode: "Sea",
+      modeLogo: sea,
+      category: "Barrels",
+      cargo: "FCL",
+    },
+    {
+      requestId: "0000001",
+      submitOn: "23/11/2024 01:00 AM",
+      agent: "Chris from Apex Global Logistics",
+      origin: "Mumbai, India",
+      originLogo: india,
+      destination: "Doha, Saudi Arabia",
+      destinationLogo: doha,
+      mode: "Air",
+      modeLogo: air,
+      category: "Barrels",
+      cargo: "FCL",
     },
   ];
 
@@ -225,7 +357,6 @@ export default function PrivateRequests() {
                 alignItems: "center",
               }}
             >
-              <Box component="img" alt="img" sx={{ width: 20, height: 20 }} />
               <Typography
                 sx={{
                   width: 164,
@@ -281,7 +412,12 @@ export default function PrivateRequests() {
                 alignItems: "center",
               }}
             >
-              <Box component="img" alt="img" sx={{ width: 20, height: 20 }} />
+              <Box
+                component="img"
+                alt="img"
+                src={item.originLogo}
+                sx={{ width: 20, height: 20 }}
+              />
               <Typography
                 sx={{
                   font: "Plus Jakarta Sans",
@@ -336,7 +472,12 @@ export default function PrivateRequests() {
                 alignItems: "center",
               }}
             >
-              <Box component="img" alt="img" sx={{ width: 20, height: 20 }} />
+              <Box
+                component="img"
+                alt="img"
+                src={item.destinationLogo}
+                sx={{ width: 20, height: 20 }}
+              />
               <Typography
                 sx={{
                   font: "Plus Jakarta Sans",
@@ -390,7 +531,12 @@ export default function PrivateRequests() {
                 alignItems: "center",
               }}
             >
-              <Box component="img" alt="img" sx={{ width: 20, height: 20 }} />
+              <Box
+                component="img"
+                alt="img"
+                src={item.modeLogo}
+                sx={{ width: 20, height: 20 }}
+              />
               <Typography
                 sx={{
                   font: "Plus Jakarta Sans",

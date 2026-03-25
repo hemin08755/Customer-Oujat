@@ -156,15 +156,16 @@ export default function SubscriptionBusiness() {
           width: "100%",
           height: "auto",
           borderRadius: "20px",
-          bgcolor: "#FFFFFF",
           p: { md: "60px", lg: "60px", xs: "10px" },
           gap: "54px",
         }}
       >
         <Box
           sx={{
-            height: { md: 108, lg: 108, xs: 200 },
+            height: { md: 108, lg: 108, xs: 150 },
             width: "100%",
+            display: "flex",
+            flexFlow: "column",
             gap: "32px",
           }}
         >

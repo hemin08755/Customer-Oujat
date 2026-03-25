@@ -23,6 +23,7 @@ import PrivateRequests from "./pages/Dashboard/QMS/PrivateRequests.jsx";
 import PickedQuotes from "./pages/Dashboard/QMS/PickedQuote.jsx";
 import ExpiredRequests from "./pages/Dashboard/QMS/ExpiredRequests.jsx";
 import RejectedQuotes from "./pages/Dashboard/QMS/RejectedQuotes.jsx";
+import NewRequest from "./pages/Dashboard/QMS/NewRequest.jsx";
 
 function App() {
   return (
@@ -57,11 +58,13 @@ function App() {
         <Route path="/Analytics" element={<Analytics />} />
 
         {/* QMS */}
-        <Route path="open" element={<OpenRequests />} />
+        <Route path="/open" element={<OpenRequests />} />
         <Route path="/private" element={<PrivateRequests />} />
         <Route path="/picked" element={<PickedQuotes />} />
         <Route path="/expired" element={<ExpiredRequests />} />
         <Route path="/rejected" element={<RejectedQuotes />} />
+
+        <Route path="/newrequest" element={<NewRequest />} />
       </Routes>
     </Router>
   );

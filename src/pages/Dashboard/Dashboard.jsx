@@ -198,6 +198,7 @@ export default function DashboardLayout() {
                     border: "1px solid #EAECF0",
                     mb: 2,
                     transition: "all 0.25s ease",
+
                     cursor: "pointer",
                     "&:hover": {
                       transform: "translateY(-6px)",
@@ -409,7 +410,7 @@ export default function DashboardLayout() {
         maxWidth="lg"
         fullWidth
       >
-        <DialogTitle>Orders in Progress</DialogTitle>
+        <DialogTitle>Favourite Agents</DialogTitle>
 
         <DialogContent dividers>
           <Grid container spacing={2}>
@@ -603,7 +604,7 @@ export default function DashboardLayout() {
         maxWidth="lg"
         fullWidth
       >
-        <DialogTitle>Orders in Progress</DialogTitle>
+        <DialogTitle>Liked Services</DialogTitle>
 
         <DialogContent dividers>
           <Grid container spacing={2}>
@@ -962,12 +963,13 @@ export default function DashboardLayout() {
           <Button onClick={() => setOpenLikedPopup(false)}>Close</Button>
         </DialogActions>
       </Dialog>
+
       {/*  */}
       <Box sx={{ display: "flex" }}>
         <ShipperDashboard />
 
         <Box sx={{ flexGrow: 1, display: "flex", flexDirection: "column" }}>
-          {/* <Navbar fixed={fixedSidebar} /> */}
+          <Navbar fixed={fixedSidebar} />
 
           <Container
             maxWidth={false}
@@ -1087,7 +1089,7 @@ export default function DashboardLayout() {
               </Grid>
 
               {/* RIGHT CARD */}
-              <Grid size={{ xs: 8, md: 2, lg: 2 }}>
+              <Grid size={{ xs: 8, md: 6, lg: 2 }}>
                 <Box
                   sx={{
                     width: "100%",

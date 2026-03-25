@@ -8,7 +8,6 @@ import {
   Menu,
   Select,
   Button,
-  Grid,
 } from "@mui/material";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import VisibilityIcon from "@mui/icons-material/Visibility";
@@ -19,6 +18,18 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
+import india from "../../../assets/logo/india.svg";
+import qatar from "../../../assets/logo/qatar.svg";
+import uk from "../../../assets/logo/uk.svg";
+import vietnam from "../../../assets/logo/vietnam.svg";
+import sriLanka from "../../../assets/logo/sriLanka.svg";
+import saudi from "../../../assets/logo/saudi.svg";
+import doha from "../../../assets/logo/doha.svg";
+
+import air from "../../../assets/logo/air.svg";
+import rail from "../../../assets/logo/rail.svg";
+import road from "../../../assets/logo/road.svg";
+import sea from "../../../assets/logo/sea.svg";
 export default function OpenRequests() {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -70,8 +81,128 @@ export default function OpenRequests() {
       requestId: "0000010",
       submitOn: "23/11/2024 01:00 AM",
       origin: "Mumbai, India",
+      originLogo: india,
       destination: "Doha, Saudi Arabia",
+      destinationLogo: doha,
       mode: "Air",
+      modeLogo: air,
+      category: "Barrels",
+      cargo: "FCL",
+      quotes: "0/5",
+    },
+    {
+      requestId: "0000009",
+      submitOn: "23/11/2024 01:00 AM",
+      origin: "Al Rayyan, Qatar",
+      originLogo: qatar,
+      destination: "Doha, Saudi Arabia",
+      destinationLogo: saudi,
+      mode: "Rail",
+      modeLogo: rail,
+      category: "Barrels",
+      cargo: "LCL",
+      quotes: "4/5",
+    },
+    {
+      requestId: "0000008",
+      submitOn: "23/11/2024 01:00 AM",
+      origin: "London, UK",
+      originLogo: uk,
+      destination: "Doha, Saudi Arabia",
+      destinationLogo: saudi,
+      mode: "Road",
+      modeLogo: road,
+      category: "Barrels",
+      cargo: "IBR",
+      quotes: "5/5",
+    },
+    {
+      requestId: "0000007",
+      submitOn: "23/11/2024 01:00 AM",
+      origin: "Hanoi, Vietnam",
+      originLogo: vietnam,
+      destination: "Colombo, Sri Lanka",
+      destinationLogo: sriLanka,
+      mode: "Sea",
+      modeLogo: sea,
+      category: "Barrels",
+      cargo: "FCL",
+      quotes: "4/5",
+    },
+    {
+      requestId: "0000006",
+      submitOn: "23/11/2024 01:00 AM",
+      origin: "Mumbai, India",
+      originLogo: india,
+      destination: "Doha, Saudi Arabia",
+      destinationLogo: doha,
+      mode: "Air",
+      modeLogo: air,
+      category: "Barrels",
+      cargo: "FCL",
+      quotes: "6/5",
+    },
+    {
+      requestId: "0000005",
+      submitOn: "23/11/2024 01:00 AM",
+      origin: "Mumbai, India",
+      originLogo: india,
+      destination: "Doha, Saudi Arabia",
+      destinationLogo: doha,
+      mode: "Air",
+      modeLogo: air,
+      category: "Barrels",
+      cargo: "FCL",
+      quotes: "2/5",
+    },
+    {
+      requestId: "0000004",
+      submitOn: "23/11/2024 01:00 AM",
+      origin: "Mumbai, India",
+      originLogo: india,
+      destination: "Doha, Saudi Arabia",
+      destinationLogo: doha,
+      mode: "Rail",
+      modeLogo: rail,
+      category: "Barrels",
+      cargo: "FCL",
+      quotes: "3/5",
+    },
+    {
+      requestId: "0000003",
+      submitOn: "23/11/2024 01:00 AM",
+      origin: "Mumbai, India",
+      originLogo: india,
+      destination: "Doha, Saudi Arabia",
+      destinationLogo: doha,
+      mode: "Road",
+      modeLogo: road,
+      category: "Barrels",
+      cargo: "FCL",
+      quotes: "1/5",
+    },
+    {
+      requestId: "0000002",
+      submitOn: "23/11/2024 01:00 AM",
+      origin: "Mumbai, India",
+      originLogo: doha,
+      destination: "Doha, Saudi Arabia",
+      destinationLogo: doha,
+      mode: "Sea",
+      modeLogo: sea,
+      category: "Barrels",
+      cargo: "FCL",
+      quotes: "7/5",
+    },
+    {
+      requestId: "0000001",
+      submitOn: "23/11/2024 01:00 AM",
+      origin: "Mumbai, India",
+      originLogo: india,
+      destination: "Doha, Saudi Arabia",
+      destinationLogo: doha,
+      mode: "Air",
+      modeLogo: air,
       category: "Barrels",
       cargo: "FCL",
       quotes: "0/5",
@@ -242,7 +373,12 @@ export default function OpenRequests() {
                 alignItems: "center",
               }}
             >
-              <Box component="img" alt="img" sx={{ width: 20, height: 20 }} />
+              <Box
+                component="img"
+                src={item.originLogo}
+                alt="origin"
+                sx={{ width: 20, height: 20 }}
+              />
               <Typography
                 sx={{
                   font: "Plus Jakarta Sans",
@@ -297,7 +433,12 @@ export default function OpenRequests() {
                 alignItems: "center",
               }}
             >
-              <Box component="img" alt="img" sx={{ width: 20, height: 20 }} />
+              <Box
+                component="img"
+                src={item.destinationLogo}
+                alt="destination"
+                sx={{ width: 20, height: 20 }}
+              />
               <Typography
                 sx={{
                   font: "Plus Jakarta Sans",
@@ -351,7 +492,12 @@ export default function OpenRequests() {
                 alignItems: "center",
               }}
             >
-              <Box component="img" alt="img" sx={{ width: 20, height: 20 }} />
+              <Box
+                component="img"
+                src={item.modeLogo}
+                alt="mode"
+                sx={{ width: 20, height: 20 }}
+              />
               <Typography
                 sx={{
                   font: "Plus Jakarta Sans",
