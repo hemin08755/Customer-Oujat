@@ -24,6 +24,9 @@ import PickedQuotes from "./pages/Dashboard/QMS/PickedQuote.jsx";
 import ExpiredRequests from "./pages/Dashboard/QMS/ExpiredRequests.jsx";
 import RejectedQuotes from "./pages/Dashboard/QMS/RejectedQuotes.jsx";
 import NewRequest from "./pages/Dashboard/QMS/NewRequest.jsx";
+import Quote1 from "./pages/Dashboard/QMS/Quote1.jsx";
+import BoxStepper from "./components/BoxStepper1.jsx";
+import Quote11 from "./pages/Dashboard/QMS/Quotes1-1.jsx";
 
 function App() {
   return (
@@ -65,6 +68,10 @@ function App() {
         <Route path="/rejected" element={<RejectedQuotes />} />
 
         <Route path="/newrequest" element={<NewRequest />} />
+        <Route path="/quote1" element={<Quote1 />} />
+        <Route path="/quote1_1" element={<Quote11 />} />
+
+        <Route path="/boxstepper" element={<BoxStepper />} />
       </Routes>
     </Router>
   );

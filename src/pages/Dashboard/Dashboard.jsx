@@ -24,961 +24,703 @@ import air from "../../assets/logo/air.svg";
 import india from "../../assets/logo/india.svg";
 import qatar from "../../assets/logo/qatar.svg";
 import doha from "../../assets/logo/doha.svg";
+
+const orders = [
+  {
+    quoteId: "#1234",
+    title: "Electronics Parts",
+    origin: "Mumbai, India",
+    destination: "Al Rayyan, Qatar",
+    leadTime: "30 Days",
+  },
+  {
+    quoteId: "#1234",
+    title: "Electronics Parts",
+    origin: "Mumbai, India",
+    destination: "Al Rayyan, Qatar",
+    leadTime: "30 Days",
+  },
+  {
+    quoteId: "#1234",
+    title: "Electronics Parts",
+    origin: "Mumbai, India",
+    destination: "Al Rayyan, Qatar",
+    leadTime: "30 Days",
+  },
+  {
+    quoteId: "#1234",
+    title: "Electronics Parts",
+    origin: "Mumbai, India",
+    destination: "Al Rayyan, Qatar",
+    leadTime: "30 Days",
+  },
+  {
+    quoteId: "#1234",
+    title: "Electronics Parts",
+    origin: "Mumbai, India",
+    destination: "Al Rayyan, Qatar",
+    leadTime: "30 Days",
+  },
+  {
+    quoteId: "#1234",
+    title: "Electronics Parts",
+    origin: "Mumbai, India",
+    destination: "Al Rayyan, Qatar",
+    leadTime: "30 Days",
+  },
+  {
+    quoteId: "#1234",
+    title: "Electronics Parts",
+    origin: "Mumbai, India",
+    destination: "Al Rayyan, Qatar",
+    leadTime: "30 Days",
+  },
+  {
+    quoteId: "#1234",
+    title: "Electronics Parts",
+    origin: "Mumbai, India",
+    destination: "Al Rayyan, Qatar",
+    leadTime: "30 Days",
+  },
+];
+
+const favorite = [
+  {
+    title: "ABC Logistic Services",
+    mail: "john.doe@email.com",
+    country1: "India",
+    country2: "Qatar",
+    services: "International Transport",
+  },
+  {
+    title: "ABC Logistic Services",
+    mail: "john.doe@email.com",
+    country1: "India",
+    country2: "Qatar",
+    services: "International Transport",
+  },
+  {
+    title: "ABC Logistic Services",
+    mail: "john.doe@email.com",
+    country1: "India",
+    country2: "Qatar",
+    services: "International Transport",
+  },
+  {
+    title: "ABC Logistic Services",
+    mail: "john.doe@email.com",
+    country1: "India",
+    country2: "Qatar",
+    services: "International Transport",
+  },
+];
+
+const liked = [
+  {
+    image,
+    title: "Criselox Logistic Limited",
+    rating: "4.0",
+    rating1: "(214)",
+    services: "International Transport",
+    city: "Mumbai",
+    country: "India",
+    destination: "Doha, Saudi Arabia",
+    from: "$25500.00/ Kg",
+    mode: "Air",
+  },
+  {
+    image,
+    title: "Criselox Logistic Limited",
+    rating: "4.0",
+    rating1: "(214)",
+    services: "International Transport",
+    city: "Mumbai",
+    country: "India",
+    destination: "Doha, Saudi Arabia",
+    from: "$25500.00/ Kg",
+    mode: "Air",
+  },
+  {
+    image,
+    title: "Criselox Logistic Limited",
+    rating: "4.0",
+    rating1: "(214)",
+    services: "International Transport",
+    city: "Mumbai",
+    country: "India",
+    destination: "Doha, Saudi Arabia",
+    from: "$25500.00/ Kg",
+    mode: "Air",
+  },
+  {
+    image,
+    title: "Criselox Logistic Limited",
+    rating: "4.0",
+    rating1: "(214)",
+    services: "International Transport",
+    city: "Mumbai",
+    country: "India",
+    destination: "Doha, Saudi Arabia",
+    from: "$25500.00/ Kg",
+    mode: "Air",
+  },
+];
+
+// Reusable Order Card
+const OrderCard = ({ order }) => (
+  <Card
+    sx={{
+      width: "100%",
+      minWidth: { xs: "260px", sm: "300px", md: "340px" },
+      height: "auto",
+      borderRadius: "20px",
+      border: "1px solid #EAECF0",
+      mb: 2,
+      transition: "all 0.25s ease",
+      cursor: "pointer",
+      "&:hover": {
+        transform: "translateY(-6px)",
+        boxShadow: "0px 8px 24px rgba(0,0,0,0.12)",
+      },
+    }}
+  >
+    <CardContent sx={{ p: { xs: 1.5, sm: 2 } }}>
+      <Box sx={{ display: "flex", gap: "15px", mb: 2 }}>
+        <Typography
+          sx={{
+            font: "Plus Jakarta Sans",
+            fontWeight: 500,
+            fontSize: "14px",
+            color: "#5F7388",
+          }}
+        >
+          Quote ID
+        </Typography>
+        <Typography
+          sx={{
+            font: "Plus Jakarta Sans",
+            fontWeight: 500,
+            fontSize: "16px",
+          }}
+        >
+          {order.quoteId}
+        </Typography>
+      </Box>
+
+      <Typography
+        sx={{
+          font: "Plus Jakarta Sans",
+          fontWeight: 500,
+          fontSize: { xs: "17px", sm: "21px" },
+          mb: 2,
+        }}
+      >
+        {order.title}
+      </Typography>
+
+      {[
+        { label: "Origin", value: order.origin, flag: india },
+        { label: "Destination", value: order.destination, flag: qatar },
+      ].map(({ label, value, flag }) => (
+        <Box
+          key={label}
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            mb: 1.5,
+          }}
+        >
+          <Typography
+            sx={{
+              font: "Plus Jakarta Sans",
+              fontWeight: 500,
+              fontSize: "14px",
+              color: "#5F7388",
+            }}
+          >
+            {label}
+          </Typography>
+          <Box sx={{ display: "flex", gap: 1, alignItems: "center" }}>
+            <Box
+              component="img"
+              src={flag}
+              alt="flag"
+              sx={{ width: 24, height: 24 }}
+            />
+            <Typography
+              sx={{
+                font: "Plus Jakarta Sans",
+                fontWeight: 500,
+                fontSize: "13px",
+              }}
+            >
+              {value}
+            </Typography>
+          </Box>
+        </Box>
+      ))}
+
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
+        <Typography
+          sx={{
+            font: "Plus Jakarta Sans",
+            fontWeight: 500,
+            fontSize: "14px",
+            color: "#5F7388",
+          }}
+        >
+          Lead Time
+        </Typography>
+        <Typography
+          sx={{
+            font: "Plus Jakarta Sans",
+            fontWeight: 500,
+            fontSize: "13px",
+          }}
+        >
+          {order.leadTime}
+        </Typography>
+      </Box>
+    </CardContent>
+  </Card>
+);
+
+// Reusable Favorite Card
+const FavoriteCard = ({ item }) => (
+  <Card
+    sx={{
+      width: "100%",
+      minWidth: { xs: "260px", sm: "300px", md: "340px" },
+      height: "auto",
+      borderRadius: "20px",
+      border: "1px solid #EAECF0",
+      mb: 2,
+      transition: "all 0.25s ease",
+      cursor: "pointer",
+      "&:hover": {
+        transform: "translateY(-6px)",
+        boxShadow: "0px 8px 24px rgba(0,0,0,0.12)",
+      },
+    }}
+  >
+    <CardContent sx={{ p: { xs: 1.5, sm: 2 } }}>
+      <Typography
+        sx={{
+          font: "Plus Jakarta Sans",
+          fontWeight: 500,
+          fontSize: { xs: "17px", sm: "21px" },
+          mb: 2,
+        }}
+      >
+        {item.title}
+      </Typography>
+
+      <Box sx={{ display: "flex", alignItems: "center", gap: "14px", mb: 2 }}>
+        <Box
+          component="img"
+          src={mail}
+          alt="mail"
+          sx={{ width: 20, height: 20 }}
+        />
+        <Typography
+          sx={{
+            font: "Plus Jakarta Sans",
+            fontWeight: 500,
+            fontSize: { xs: "14px", sm: "18px" },
+            color: "#5F7388",
+          }}
+        >
+          {item.mail}
+        </Typography>
+      </Box>
+
+      <Typography
+        sx={{
+          font: "Plus Jakarta Sans",
+          fontWeight: 500,
+          fontSize: "14px",
+          color: "#5F7388",
+          mb: 1,
+        }}
+      >
+        Countries of Activity
+      </Typography>
+      <Box sx={{ display: "flex", gap: "6px", mb: 2 }}>
+        {[
+          { flag: india, name: item.country1 },
+          { flag: qatar, name: item.country2 },
+        ].map(({ flag, name }) => (
+          <Box
+            key={name}
+            sx={{ display: "flex", gap: "4px", alignItems: "center" }}
+          >
+            <Box
+              component="img"
+              src={flag}
+              alt={name}
+              sx={{ width: 24, height: 24 }}
+            />
+            <Typography sx={{ fontSize: "14px" }}>{name}</Typography>
+          </Box>
+        ))}
+      </Box>
+
+      <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Typography
+          sx={{
+            font: "Plus Jakarta Sans",
+            fontWeight: 500,
+            fontSize: "14px",
+          }}
+        >
+          Services
+        </Typography>
+        <Typography
+          sx={{
+            font: "Plus Jakarta Sans",
+            fontWeight: 500,
+            fontSize: "12px",
+            color: "#FC5722",
+          }}
+        >
+          {item.services}
+        </Typography>
+      </Box>
+    </CardContent>
+  </Card>
+);
+
+// Reusable Liked Card
+const LikedCard = ({ item }) => (
+  <Card
+    sx={{
+      width: "100%",
+      minWidth: { xs: "260px", sm: "300px", md: "340px" },
+      borderRadius: "10px",
+      border: "1px solid #EAECF0",
+      mb: 2,
+      transition: "all 0.25s ease",
+      cursor: "pointer",
+      "&:hover": {
+        transform: "translateY(-6px)",
+        boxShadow: "0px 8px 24px rgba(0,0,0,0.12)",
+      },
+    }}
+  >
+    <CardContent sx={{ p: { xs: 1.5, sm: 2 } }}>
+      <Box
+        component="img"
+        alt="img"
+        src={item.image}
+        sx={{
+          width: "100%",
+          height: { xs: 160, sm: 192 },
+          borderRadius: "8px",
+          objectFit: "cover",
+          display: "block",
+        }}
+      />
+
+      <Box sx={{ mt: 2 }}>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            mb: 1,
+          }}
+        >
+          <Typography
+            sx={{
+              font: "Plus Jakarta Sans",
+              fontWeight: 600,
+              fontSize: { xs: "15px", sm: "18px" },
+            }}
+          >
+            {item.title}
+          </Typography>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              gap: "4px",
+              border: "1px solid #E5D5D5",
+              borderRadius: "16px",
+              px: 1,
+              py: 0.5,
+            }}
+          >
+            <Box
+              component="img"
+              src={star}
+              alt="star"
+              sx={{ width: 18, height: 18 }}
+            />
+            <Typography
+              sx={{
+                font: "Plus Jakarta Sans",
+                fontWeight: 600,
+                fontSize: "14px",
+              }}
+            >
+              {item.rating}
+              <span style={{ fontSize: "9px" }}> {item.rating1}</span>
+            </Typography>
+          </Box>
+        </Box>
+
+        <Typography
+          sx={{
+            font: "Plus Jakarta Sans",
+            fontWeight: 500,
+            fontSize: "12px",
+            color: "#FC5722",
+            mb: 1.5,
+          }}
+        >
+          {item.services}
+        </Typography>
+
+        {[
+          {
+            label: "City/Country",
+            value: `${item.city}, ${item.country}`,
+            flag: india,
+          },
+          { label: "Destination", value: item.destination, flag: doha },
+        ].map(({ label, value, flag }) => (
+          <Box
+            key={label}
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              mb: 1.5,
+            }}
+          >
+            <Typography
+              sx={{
+                font: "Plus Jakarta Sans",
+                fontWeight: 500,
+                fontSize: "12px",
+                color: "#5F7388",
+              }}
+            >
+              {label}
+            </Typography>
+            <Box sx={{ display: "flex", gap: "8px", alignItems: "center" }}>
+              <Box
+                component="img"
+                src={flag}
+                alt="flag"
+                sx={{ width: 24, height: 24 }}
+              />
+              <Typography
+                sx={{
+                  font: "Plus Jakarta Sans",
+                  fontWeight: 500,
+                  fontSize: "13px",
+                }}
+              >
+                {value}
+              </Typography>
+            </Box>
+          </Box>
+        ))}
+
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <Box sx={{ display: "flex", gap: "6px", alignItems: "center" }}>
+            <Typography
+              sx={{
+                font: "Plus Jakarta Sans",
+                fontWeight: 500,
+                fontSize: "12px",
+                color: "#5F7388",
+              }}
+            >
+              From
+            </Typography>
+            <Typography
+              sx={{
+                font: "Plus Jakarta Sans",
+                fontWeight: 700,
+                fontSize: "12px",
+              }}
+            >
+              {item.from}
+            </Typography>
+          </Box>
+          <Box sx={{ display: "flex", gap: "6px", alignItems: "center" }}>
+            <Typography
+              sx={{
+                font: "Plus Jakarta Sans",
+                fontWeight: 500,
+                fontSize: "12px",
+                color: "#5F7388",
+              }}
+            >
+              Mode
+            </Typography>
+            <Box
+              component="img"
+              src={air}
+              alt="air"
+              sx={{ width: 24, height: 24 }}
+            />
+            <Typography
+              sx={{
+                font: "Plus Jakarta Sans",
+                fontWeight: 700,
+                fontSize: "12px",
+              }}
+            >
+              {item.mode}
+            </Typography>
+          </Box>
+        </Box>
+      </Box>
+    </CardContent>
+  </Card>
+);
+
+// Reusable Section Header
+const SectionHeader = ({ title, count, onViewAll }) => (
+  <Box
+    sx={{
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+      mb: 2,
+    }}
+  >
+    <Typography
+      sx={{
+        font: "Plus Jakarta Sans",
+        fontWeight: 700,
+        fontSize: { xs: "18px", sm: "22px", md: "26px" },
+      }}
+    >
+      {title} ({count})
+    </Typography>
+    <Typography
+      sx={{
+        font: "Plus Jakarta Sans",
+        fontWeight: 700,
+        fontSize: "16px",
+        cursor: "pointer",
+        color: "#FF7A3A",
+      }}
+      onClick={onViewAll}
+    >
+      View all
+    </Typography>
+  </Box>
+);
+
+// Reusable Horizontal Scroll Section
+const HorizontalScrollSection = ({ children }) => (
+  <Box
+    sx={{
+      display: "flex",
+      gap: "24px",
+      overflowX: "auto",
+      py: 2,
+      "&::-webkit-scrollbar": { height: 0 },
+    }}
+  >
+    {children}
+  </Box>
+);
+
+// Reusable Dialog wrapper
+const ListDialog = ({ open, onClose, title, children }) => (
+  <Dialog open={open} onClose={onClose} maxWidth="lg" fullWidth>
+    <DialogTitle>{title}</DialogTitle>
+    <DialogContent dividers>
+      <Grid container spacing={2}>
+        {children}
+      </Grid>
+    </DialogContent>
+    <DialogActions>
+      <Button onClick={onClose}>Close</Button>
+    </DialogActions>
+  </Dialog>
+);
+
 export default function DashboardLayout() {
   const [fixedSidebar] = useState(false);
   const [openOrdersPopup, setOpenOrdersPopup] = useState(false);
   const [openFavoritePopup, setOpenFavoritePopup] = useState(false);
   const [openLikedPopup, setOpenLikedPopup] = useState(false);
 
-  // orders
-  const orders = [
-    {
-      quoteId: "#1234",
-      title: "Electronics Parts",
-      origin: "Mumbai, India",
-      destination: "Al Rayyan, Qatar",
-      leadTime: "30 Days",
-    },
-    {
-      quoteId: "#1234",
-      title: "Electronics Parts",
-      origin: "Mumbai, India",
-      destination: "Al Rayyan, Qatar",
-      leadTime: "30 Days",
-    },
-    {
-      quoteId: "#1234",
-      title: "Electronics Parts",
-      origin: "Mumbai, India",
-      destination: "Al Rayyan, Qatar",
-      leadTime: "30 Days",
-    },
-    {
-      quoteId: "#1234",
-      title: "Electronics Parts",
-      origin: "Mumbai, India",
-      destination: "Al Rayyan, Qatar",
-      leadTime: "30 Days",
-    },
-    {
-      quoteId: "#1234",
-      title: "Electronics Parts",
-      origin: "Mumbai, India",
-      destination: "Al Rayyan, Qatar",
-      leadTime: "30 Days",
-    },
-    {
-      quoteId: "#1234",
-      title: "Electronics Parts",
-      origin: "Mumbai, India",
-      destination: "Al Rayyan, Qatar",
-      leadTime: "30 Days",
-    },
-    {
-      quoteId: "#1234",
-      title: "Electronics Parts",
-      origin: "Mumbai, India",
-      destination: "Al Rayyan, Qatar",
-      leadTime: "30 Days",
-    },
-
-    {
-      quoteId: "#1234",
-      title: "Electronics Parts",
-      origin: "Mumbai, India",
-      destination: "Al Rayyan, Qatar",
-      leadTime: "30 Days",
-    },
-  ];
-
-  const favorite = [
-    {
-      title: " ABC Logistic Services",
-      mail: "john.doe@email.com",
-      country1: "India",
-      country2: "Qatar",
-      services: "International Transport",
-    },
-    {
-      title: " ABC Logistic Services",
-      mail: "john.doe@email.com",
-      country1: "India",
-      country2: "Qatar",
-      services: "International Transport",
-    },
-    {
-      title: " ABC Logistic Services",
-      mail: "john.doe@email.com",
-      country1: "India",
-      country2: "Qatar",
-      services: "International Transport",
-    },
-    {
-      title: " ABC Logistic Services",
-      mail: "john.doe@email.com",
-      country1: "India",
-      country2: "Qatar",
-      services: "International Transport",
-    },
-  ];
-
-  const liked = [
-    {
-      image: image,
-
-      title: "Criselox Logistic Limited",
-      rating: "4.0",
-      rating1: "(214)",
-      services: "International Transport",
-      city: "Mumbai",
-      country: "India",
-      destination: "Doha, Saudi Arabia",
-      from: "$25500.00/ Kg",
-      mode: "Air",
-    },
-    {
-      image: image,
-
-      title: "Criselox Logistic Limited",
-      rating: "4.0",
-      rating1: "(214)",
-      services: "International Transport",
-      city: "Mumbai",
-      country: "India",
-      destination: "Doha, Saudi Arabia",
-      from: "$25500.00/ Kg",
-      mode: "Air",
-    },
-    {
-      image: image,
-
-      title: "Criselox Logistic Limited",
-      rating: "4.0",
-      rating1: "(214)",
-      services: "International Transport",
-      city: "Mumbai",
-      country: "India",
-      destination: "Doha, Saudi Arabia",
-      from: "$25500.00/ Kg",
-      mode: "Air",
-    },
-    {
-      image: image,
-
-      title: "Criselox Logistic Limited",
-      rating: "4.0",
-      rating1: "(214)",
-      services: "International Transport",
-      city: "Mumbai",
-      country: "India",
-      destination: "Doha, Saudi Arabia",
-      from: "$25500.00/ Kg",
-      mode: "Air",
-    },
-  ];
   return (
     <>
-      <Dialog
+      {/* Orders Dialog */}
+      <ListDialog
         open={openOrdersPopup}
         onClose={() => setOpenOrdersPopup(false)}
-        maxWidth="lg"
-        fullWidth
+        title="Orders in Progress"
       >
-        <DialogTitle>Orders in Progress</DialogTitle>
-
-        <DialogContent dividers>
-          <Grid container spacing={2}>
-            {orders.map((order, index) => (
-              <Grid item xs={12} sm={6} md={2} key={index}>
-                <Card
-                  sx={{
-                    minWidth: 355.3333435058594,
-                    height: 210,
-                    borderRadius: "20px",
-                    border: "1px solid #EAECF0",
-                    mb: 2,
-                    transition: "all 0.25s ease",
-
-                    cursor: "pointer",
-                    "&:hover": {
-                      transform: "translateY(-6px)",
-                      boxShadow: "0px 8px 24px rgba(0,0,0,0.12)",
-                    },
-                  }}
-                >
-                  <CardContent>
-                    <Box
-                      sx={{
-                        width: 320.666748046875,
-                        height: 20,
-                        display: "flex",
-                        gap: "15px",
-                      }}
-                    >
-                      <Typography
-                        sx={{
-                          font: "Plus Jakarta Sans",
-                          fontWeight: 500,
-                          fontSize: "14px",
-                          lineHeight: "14px",
-                          letterSpacing: "0%",
-                          color: "#5F7388",
-                        }}
-                      >
-                        Quote ID
-                      </Typography>
-
-                      <Typography
-                        sx={{
-                          font: "Plus Jakarta Sans",
-                          fontWeight: 500,
-                          fontSize: "16px",
-                          lineHeight: "16px",
-                          letterSpacing: "0%",
-                        }}
-                      >
-                        {order.quoteId}
-                      </Typography>
-                    </Box>
-
-                    <Box
-                      sx={{
-                        width: 320.666748046875,
-                        height: 26,
-                        mt: "16px",
-                      }}
-                    >
-                      <Typography
-                        sx={{
-                          font: "Plus Jakarta Sans",
-                          fontWeight: 500,
-                          fontSize: "21px",
-                          lineHeight: "21px",
-                          letterSpacing: "0%",
-                        }}
-                      >
-                        {order.title}
-                      </Typography>
-                    </Box>
-
-                    <Box
-                      sx={{
-                        width: 327.3333435058594,
-                        height: 20,
-                        display: "flex",
-                        justifyContent: "space-between",
-                        mt: "16px",
-                      }}
-                    >
-                      <Box sx={{ width: 185 }}>
-                        <Typography
-                          sx={{
-                            font: "Plus Jakarta Sans",
-                            fontWeight: 500,
-                            fontSize: "16px",
-                            lineHeight: "16px",
-                            letterSpacing: "0%",
-                            color: "#5F7388",
-                          }}
-                        >
-                          Origin
-                        </Typography>
-                      </Box>
-
-                      <Box sx={{ width: 142, display: "flex", gap: 1 }}>
-                        <Box
-                          component="img"
-                          src={india}
-                          alt="img"
-                          sx={{ width: 24, height: 24 }}
-                        />
-                        <Typography
-                          sx={{
-                            font: "Plus Jakarta Sans",
-                            fontWeight: 500,
-                            fontSize: "14px",
-                            lineHeight: "20px",
-                            letterSpacing: "0%",
-                          }}
-                        >
-                          {order.origin}
-                        </Typography>
-                      </Box>
-                    </Box>
-
-                    <Box
-                      sx={{
-                        width: 327.3333435058594,
-                        height: 20,
-                        display: "flex",
-                        justifyContent: "space-between",
-                        mt: "16px",
-                      }}
-                    >
-                      <Box sx={{ width: 185 }}>
-                        <Typography
-                          sx={{
-                            font: "Plus Jakarta Sans",
-                            fontWeight: 500,
-                            fontSize: "16px",
-                            lineHeight: "16px",
-                            letterSpacing: "0%",
-                            color: "#5F7388",
-                          }}
-                        >
-                          Destination
-                        </Typography>
-                      </Box>
-
-                      <Box sx={{ width: 142, display: "flex", gap: 1 }}>
-                        <Box
-                          component="img"
-                          src={qatar}
-                          alt="img"
-                          sx={{ width: 24, height: 24 }}
-                        />
-
-                        <Typography
-                          sx={{
-                            font: "Plus Jakarta Sans",
-                            fontWeight: 500,
-                            fontSize: "14px",
-                            lineHeight: "20px",
-                            letterSpacing: "0%",
-                          }}
-                        >
-                          {order.destination}
-                        </Typography>
-                      </Box>
-                    </Box>
-
-                    <Box
-                      sx={{
-                        width: 327.3333435058594,
-                        height: 20,
-                        display: "flex",
-                        justifyContent: "space-between",
-                        mt: "16px",
-                      }}
-                    >
-                      <Box sx={{ width: 185 }}>
-                        <Typography
-                          sx={{
-                            font: "Plus Jakarta Sans",
-                            fontWeight: 500,
-                            fontSize: "16px",
-                            lineHeight: "16px",
-                            letterSpacing: "0%",
-                            color: "#5F7388",
-                          }}
-                        >
-                          Lead Time
-                        </Typography>
-                      </Box>
-
-                      <Box sx={{ width: 142 }}>
-                        <Typography
-                          sx={{
-                            font: "Plus Jakarta Sans",
-                            fontWeight: 500,
-                            fontSize: "14px",
-                            lineHeight: "20px",
-                            letterSpacing: "0%",
-                          }}
-                        >
-                          {order.leadTime}
-                        </Typography>
-                      </Box>
-                    </Box>
-                  </CardContent>
-                </Card>
-              </Grid>
-            ))}
+        {orders.map((order, index) => (
+          <Grid item xs={12} sm={6} md={4} key={index}>
+            <OrderCard order={order} />
           </Grid>
-        </DialogContent>
+        ))}
+      </ListDialog>
 
-        <DialogActions>
-          <Button onClick={() => setOpenOrdersPopup(false)}>Close</Button>
-        </DialogActions>
-      </Dialog>
-
-      {/* favoutite dialog */}
-
-      <Dialog
+      {/* Favourite Dialog */}
+      <ListDialog
         open={openFavoritePopup}
         onClose={() => setOpenFavoritePopup(false)}
-        maxWidth="lg"
-        fullWidth
+        title="Favourite Agents"
       >
-        <DialogTitle>Favourite Agents</DialogTitle>
-
-        <DialogContent dividers>
-          <Grid container spacing={2}>
-            {favorite.map((favorite, index) => (
-              <Grid item xs={12} sm={6} md={2} key={index}>
-                <Card
-                  sx={{
-                    minWidth: 355.3333435058594,
-                    height: 210,
-                    borderRadius: "20px",
-                    border: "1px solid #EAECF0",
-                    mb: 2,
-                    transition: "all 0.25s ease",
-                    cursor: "pointer",
-                    "&:hover": {
-                      transform: "translateY(-6px)",
-                      boxShadow: "0px 8px 24px rgba(0,0,0,0.12)",
-                    },
-                  }}
-                >
-                  <CardContent>
-                    <Box sx={{ width: 320.666748046875, height: 26 }}>
-                      <Typography
-                        sx={{
-                          font: "Plus Jakarta Sans",
-                          fontWeight: 500,
-                          fontSize: "21px",
-                          lineHeight: "21px",
-                          letterSpacing: "0%",
-                        }}
-                      >
-                        {favorite.title}
-                      </Typography>
-                    </Box>
-
-                    <Box
-                      sx={{
-                        width: 320.66,
-                        height: 24,
-                        gap: "14px",
-                        display: "flex",
-                        alignItems: "center",
-                        mt: "16px",
-                      }}
-                    >
-                      <Box
-                        component="img"
-                        src={mail}
-                        alt="img"
-                        sx={{ width: 20, height: 20 }}
-                      />
-
-                      <Typography
-                        sx={{
-                          font: "Plus Jakarta Sans",
-                          fontWeight: 500,
-                          fontSize: "18px",
-                          lineHeight: "100%",
-                          letterSpacing: 0,
-                          color: "#5F7388",
-                        }}
-                      >
-                        {favorite.mail}
-                      </Typography>
-                    </Box>
-
-                    <Box
-                      sx={{
-                        width: 320.666748046875,
-                        height: 49,
-                        gap: "11px",
-                        mt: 2,
-                      }}
-                    >
-                      <Box sx={{ width: 140, height: 18 }}>
-                        <Typography
-                          sx={{
-                            font: "Plus Jakarta Sans",
-                            fontWeight: 500,
-                            fontSize: "14px",
-                            lineHeight: "100%",
-                            letterSpacing: 0,
-                            color: "#5F7388",
-                          }}
-                        >
-                          Countryes of Activity
-                        </Typography>
-                      </Box>
-                      <Box
-                        sx={{
-                          width: 147,
-                          height: 20,
-                          display: "flex",
-                          gap: "6px",
-
-                          mt: 1,
-                        }}
-                      >
-                        <Box
-                          sx={{
-                            width: 65,
-                            height: 20,
-                            gap: "4px",
-                            display: "flex",
-                          }}
-                        >
-                          <Box
-                            component="img"
-                            src={india}
-                            alt="img"
-                            sx={{ width: 24, height: 24 }}
-                          />
-                          <Typography>{favorite.country1}</Typography>
-                        </Box>
-
-                        <Box
-                          sx={{
-                            width: 65,
-                            height: 20,
-                            gap: "4px",
-                            display: "flex",
-                          }}
-                        >
-                          <Box
-                            component="img"
-                            src={qatar}
-                            alt="img"
-                            sx={{ width: 24, height: 24 }}
-                          />
-                          <Typography>{favorite.country2}</Typography>
-                        </Box>
-                      </Box>
-                    </Box>
-
-                    <Box
-                      sx={{
-                        width: 320.666748046875,
-                        height: 20,
-                        gap: "11px",
-                        mt: "16px",
-                        display: "flex",
-                        justifyContent: "space-between",
-                      }}
-                    >
-                      <Box sx={{ width: 180.666748046875, height: 18 }}>
-                        <Typography
-                          sx={{
-                            font: "Plus Jakarta Sans",
-                            fontWeight: 500,
-                            fontSize: "14px",
-                            lineHeight: "100%",
-                            letterSpacing: 0,
-                          }}
-                        >
-                          Services
-                        </Typography>
-                      </Box>
-                      <Box sx={{ width: 129, height: 18 }}>
-                        <Typography
-                          sx={{
-                            font: "Plus Jakarta Sans",
-                            fontWeight: 500,
-                            fontSize: "12px",
-                            fontStyle: "Medium",
-                            lineHeight: "20px",
-                            letterSpacing: 0,
-                            color: "#FC5722",
-                          }}
-                        >
-                          {favorite.services}
-                        </Typography>
-                      </Box>
-                    </Box>
-                  </CardContent>
-                </Card>
-              </Grid>
-            ))}
+        {favorite.map((item, index) => (
+          <Grid item xs={12} sm={6} md={4} key={index}>
+            <FavoriteCard item={item} />
           </Grid>
-        </DialogContent>
+        ))}
+      </ListDialog>
 
-        <DialogActions>
-          <Button onClick={() => setOpenFavoritePopup(false)}>Close</Button>
-        </DialogActions>
-      </Dialog>
-
-      {/* liked dialog */}
-
-      <Dialog
+      {/* Liked Dialog */}
+      <ListDialog
         open={openLikedPopup}
         onClose={() => setOpenLikedPopup(false)}
-        maxWidth="lg"
-        fullWidth
+        title="Liked Services"
       >
-        <DialogTitle>Liked Services</DialogTitle>
-
-        <DialogContent dividers>
-          <Grid container spacing={2}>
-            {liked.map((liked, index) => (
-              <Card
-                key={index}
-                sx={{
-                  minWidth: 356,
-                  height: 410,
-                  borderRadius: "10px",
-                  border: "1px solid #EAECF0",
-                  mb: 2,
-                  transition: "all 0.25s ease",
-                  cursor: "pointer",
-                  "&:hover": {
-                    transform: "translateY(-6px)",
-                    boxShadow: "0px 8px 24px rgba(0,0,0,0.12)",
-                  },
-                }}
-              >
-                <CardContent>
-                  <Box
-                    sx={{
-                      width: 324,
-                      height: 370,
-                      gap: "16px",
-                    }}
-                  >
-                    <Box
-                      component="img"
-                      alt="img"
-                      src={liked.image}
-                      sx={{
-                        width: 324,
-                        height: 192,
-                        borderRadius: "8px",
-                        color: "#EBEBEB",
-                      }}
-                    />
-                    <Box sx={{ width: 324, height: 162, gap: "11px" }}>
-                      <Box
-                        sx={{
-                          height: 26,
-                          width: 324,
-                          gap: "12px",
-                          display: "flex",
-                          mt: "16px",
-                        }}
-                      >
-                        <Box sx={{ width: 230, height: 23 }}>
-                          <Typography
-                            sx={{
-                              font: "Plus Jakarta Sans",
-                              fontWeight: 600,
-                              fontSize: "18px",
-                            }}
-                          >
-                            {liked.title}
-                          </Typography>
-                        </Box>
-                        <Box
-                          sx={{
-                            width: 82,
-                            height: 26,
-                            borderRadius: "16px",
-                            border: "1px solid #E5D5D5",
-                            display: "flex",
-                            alignItems: "center",
-                            gap: "4px",
-                          }}
-                        >
-                          <Box
-                            component="img"
-                            alt="img"
-                            src={star}
-                            sx={{ width: 18, height: 18, ml: "7.5px" }}
-                          />
-                          <Box
-                            sx={{
-                              width: 48,
-                              height: 18,
-                              display: "flex",
-                              alignItems: "center",
-                            }}
-                          >
-                            <Typography
-                              sx={{
-                                fontFamily: "Plus Jakarta Sans",
-                                fontWeight: 600,
-                                fontSize: "14px",
-                                lineHeight: "100%",
-                                letterSpacing: 0,
-                              }}
-                            >
-                              {liked.rating}
-                              <span
-                                style={{
-                                  fontFamily: "Plus Jakarta Sans",
-                                  fontWeight: 600,
-                                  fontSize: "9px",
-                                  lineHeight: "100%",
-                                  letterSpacing: 0,
-                                }}
-                              >
-                                {" "}
-                                {liked.rating1}
-                              </span>
-                            </Typography>
-                          </Box>
-                        </Box>
-                      </Box>
-                      <Box
-                        sx={{
-                          width: 324,
-                          height: 20,
-                          gap: "12px",
-                          mt: "11px",
-                        }}
-                      >
-                        <Typography
-                          sx={{
-                            width: 129,
-                            height: 20,
-                            style: "Medium",
-                            font: "Plus Jakarta Sans",
-                            fontWeight: 500,
-                            fontSize: "12px",
-                            lineHeight: "20px",
-
-                            color: "#FC5722",
-                          }}
-                        >
-                          {liked.services}
-                        </Typography>
-                      </Box>
-
-                      <Box
-                        sx={{
-                          width: 324,
-                          height: 24,
-                          gap: "12px",
-                          display: "flex",
-                          mt: "15.5px",
-                          alignItems: "center",
-                          justifyContent: "space-between",
-                        }}
-                      >
-                        <Box sx={{ width: 187, height: 15 }}>
-                          <Typography
-                            sx={{
-                              font: "Plus Jakarta Sans",
-                              fontWeight: 500,
-                              fontStyle: "Medium",
-                              fontSize: "12px",
-                              lineHeight: "100%",
-                              letterSpacing: 0,
-                              color: "#5F7388",
-                            }}
-                          >
-                            City/Country
-                          </Typography>
-                        </Box>
-                        <Box
-                          sx={{
-                            width: 125,
-                            height: 24,
-                            gap: "8px",
-                            display: "flex",
-                          }}
-                        >
-                          <Box
-                            component="img"
-                            alt="img"
-                            src={india}
-                            sx={{ width: 24, height: 24 }}
-                          />
-                          <Box sx={{ width: 93, height: 20 }}>
-                            <Typography
-                              sx={{
-                                font: "Plus Jakarta Sans",
-                                fontWeight: 500,
-                                fontStyle: "Medium",
-                                fontSize: "14px",
-                                lineHeight: "20px",
-                              }}
-                            >
-                              {liked.city}, {liked.country}
-                            </Typography>
-                          </Box>
-                        </Box>
-                      </Box>
-                      <Box
-                        sx={{
-                          width: 324,
-                          height: 24,
-                          gap: "12px",
-                          mt: "15.5px",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "space-between",
-                        }}
-                      >
-                        <Box sx={{ width: 154, height: 15 }}>
-                          <Typography
-                            sx={{
-                              font: "Plus Jakarta Sans",
-                              fontWeight: 500,
-                              fontSize: "12px",
-                              lineHeight: "100%",
-                              letterSpacing: 0,
-                              color: "#5F7388",
-                            }}
-                          >
-                            Destination
-                          </Typography>
-                        </Box>
-                        <Box
-                          sx={{
-                            width: 158,
-                            height: 24,
-                            gap: "8px",
-                            display: "flex",
-                            alignItems: "center",
-                          }}
-                        >
-                          <Box
-                            component="img"
-                            alt="img"
-                            src={doha}
-                            sx={{ width: 24, height: 24 }}
-                          />
-                          <Box sx={{ width: 126, height: 20 }}>
-                            <Typography
-                              sx={{
-                                font: "Plus Jakarta Sans",
-                                fontWeight: 500,
-                                fontSize: "14px",
-                                lineHeight: "20px",
-                                letterSpacing: 0,
-                              }}
-                            >
-                              {liked.destination}
-                            </Typography>
-                          </Box>
-                        </Box>
-                      </Box>
-
-                      <Box
-                        sx={{
-                          width: 324,
-                          height: 24,
-                          gap: "12px",
-                          mt: "15.5px",
-                          display: "flex",
-                          alignItems: "center",
-                        }}
-                      >
-                        <Box
-                          sx={{
-                            width: 211,
-                            height: 20,
-                            display: "flex",
-                            alignItems: "center",
-                          }}
-                        >
-                          <Box sx={{ width: 34, height: 15 }}>
-                            <Typography
-                              sx={{
-                                font: "Plus Jakarta Sans",
-                                fontWeight: 500,
-                                fontSize: "12px",
-                                lineHeight: "100%",
-                                letterSpacing: 0,
-                                color: "#5F7388",
-                              }}
-                            >
-                              From
-                            </Typography>
-                          </Box>
-                          <Box sx={{ width: 177, height: 20 }}>
-                            <Typography
-                              sx={{
-                                font: "Plus Jakarta Sans",
-                                fontWeight: 700,
-                                fontSize: "12px",
-                                lineHeight: "20px",
-                                letterSpacing: 0,
-                              }}
-                            >
-                              {liked.from}
-                            </Typography>
-                          </Box>
-                        </Box>
-
-                        <Box
-                          sx={{
-                            width: 101,
-                            height: 24,
-                            gap: "12px",
-                            display: "flex",
-                            alignItems: "center",
-                          }}
-                        >
-                          <Box sx={{ width: 34, height: 15 }}>
-                            <Typography
-                              sx={{
-                                fontFamily: "Plus Jakarta Sans",
-                                fontWeight: 500,
-                                fontSize: "12px",
-                                lineHeight: "100%",
-                                letterSpacing: 0,
-                                color: "#5F7388",
-                              }}
-                            >
-                              Mode
-                            </Typography>
-                          </Box>
-                          <Box
-                            sx={{
-                              width: 55,
-                              height: 24,
-                              gap: "10px",
-                              display: "flex",
-                              alignItems: "center",
-                            }}
-                          >
-                            <Box
-                              component="img"
-                              alt="img"
-                              src={air}
-                              sx={{ width: 24, height: 24 }}
-                            />
-                            <Typography
-                              sx={{
-                                font: "Plus Jakarta Sans",
-                                fontWeight: 700,
-                                fontSize: "12px",
-                                lineHeight: "20px",
-                                letterSpacing: 0,
-                              }}
-                            >
-                              {liked.mode}
-                            </Typography>
-                          </Box>
-                        </Box>
-                      </Box>
-                    </Box>
-                  </Box>
-                </CardContent>
-              </Card>
-            ))}
+        {liked.map((item, index) => (
+          <Grid item xs={12} sm={6} md={4} key={index}>
+            <LikedCard item={item} />
           </Grid>
-        </DialogContent>
+        ))}
+      </ListDialog>
 
-        <DialogActions>
-          <Button onClick={() => setOpenLikedPopup(false)}>Close</Button>
-        </DialogActions>
-      </Dialog>
-
-      {/*  */}
       <Box sx={{ display: "flex" }}>
         <ShipperDashboard />
 
-        <Box sx={{ flexGrow: 1, display: "flex", flexDirection: "column" }}>
+        <Box
+          sx={{
+            flexGrow: 1,
+            display: "flex",
+            flexDirection: "column",
+            minWidth: 0,
+          }}
+        >
           <Navbar fixed={fixedSidebar} />
 
-          <Container
-            maxWidth={false}
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              py: 2,
-            }}
-          >
+          <Container maxWidth={false} sx={{ py: 0, mt: "-24px" }}>
             <Grid container spacing={3}>
               {/* LEFT CARD */}
               <Grid
@@ -1094,10 +836,10 @@ export default function DashboardLayout() {
                   sx={{
                     width: "100%",
                     minWidth: {
-                      lg: "280px",
+                      lg: "290px",
                       md: "280px",
                       sm: "300px",
-                      xs: "280px",
+                      xs: "auto",
                     },
                     minHeight: 160,
                     borderRadius: "20px",
@@ -1145,992 +887,71 @@ export default function DashboardLayout() {
               </Grid>
             </Grid>
 
-            {/* order in progress */}
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                width: "100%",
-                maxWidth: { md: "1000px", lg: 1040, xs: "290px", sm: 740 },
-                gap: "24px",
-                mt: "24px",
-
-                justifyContent: "space-between",
-              }}
-            >
-              <Box
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  width: "100%",
-                  maxWidth: { md: "1000px", lg: 1020, xs: "290px", sm: 740 },
-                  gap: "20px",
-
-                  justifyContent: "center",
-                }}
-              >
-                <Box
-                  sx={{
-                    width: "100%",
-                    height: 28,
-                    display: "flex",
-                    justifyContent: "space-between",
-                  }}
-                >
+            {/* Orders in Progress */}
+            <Box sx={{ mt: "24px" }}>
+              <SectionHeader
+                title="Orders in Progress"
+                count={orders.length}
+                onViewAll={() => setOpenOrdersPopup(true)}
+              />
+              <HorizontalScrollSection>
+                {orders.map((order, index) => (
                   <Box
-                    sx={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      height: 28,
-                    }}
-                  >
-                    <Typography
-                      sx={{
-                        font: "Plus Jakarta Sans",
-                        fontWeight: 700,
-                        fontSize: {
-                          md: "26px",
-                          lg: "26px",
-                          sm: "26px",
-                          xs: "20px",
-                        },
-                        lineHeight: "28px",
-                        letterSpacing: 0,
-                      }}
-                    >
-                      Orders in Progress ({orders?.length || 0})
-                    </Typography>{" "}
-                  </Box>
-                  <Box
-                    sx={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      height: 28,
-                    }}
-                  >
-                    <Typography
-                      sx={{
-                        font: "Plus Jakarta Sans",
-                        fontWeight: 700,
-                        fontSize: "16px",
-                        lineHeight: "28px",
-                        cursor: "pointer",
-                        color: "#FF7A3A",
-                      }}
-                      onClick={() => setOpenOrdersPopup(true)}
-                    >
-                      View all
-                    </Typography>
-                  </Box>
-                </Box>
-
-                <Box
-                  sx={{
-                    display: "flex",
-                    width: "100%",
-                    gap: "24px",
-                    mt: "20px",
-                    overflowX: "auto",
-                    py: 3,
-                    "&::-webkit-scrollbar": {
-                      height: 0,
-                    },
-                    "&::-webkit-scrollbar-thumb": {
-                      bgcolor: "#FFFFFF",
-                    },
-                  }}
-                >
-                  <Grid
-                    container
-                    spacing={3}
-                    flexWrap="nowrap"
-                    sx={{ gap: 47 }}
-                  >
-                    {orders.map((order, index) => (
-                      <Grid key={index}>
-                        <Card
-                          sx={{
-                            minWidth: 355.3333435058594,
-                            height: 210,
-                            borderRadius: "20px",
-                            border: "1px solid #EAECF0",
-                            mb: 2,
-                            transition: "all 0.25s ease",
-                            cursor: "pointer",
-                            "&:hover": {
-                              transform: "translateY(-6px)",
-                              boxShadow: "0px 8px 24px rgba(0,0,0,0.12)",
-                            },
-                          }}
-                        >
-                          <CardContent>
-                            <Box
-                              sx={{
-                                width: 320.666748046875,
-                                height: 20,
-                                display: "flex",
-                                gap: "15px",
-                              }}
-                            >
-                              <Typography
-                                sx={{
-                                  font: "Plus Jakarta Sans",
-                                  fontWeight: 500,
-                                  fontSize: "14px",
-                                  lineHeight: "14px",
-                                  letterSpacing: "0%",
-                                  color: "#5F7388",
-                                }}
-                              >
-                                Quote ID
-                              </Typography>
-
-                              <Typography
-                                sx={{
-                                  font: "Plus Jakarta Sans",
-                                  fontWeight: 500,
-                                  fontSize: "16px",
-                                  lineHeight: "16px",
-                                  letterSpacing: "0%",
-                                }}
-                              >
-                                {order.quoteId}
-                              </Typography>
-                            </Box>
-
-                            <Box
-                              sx={{
-                                width: 320.666748046875,
-                                height: 26,
-                                mt: "16px",
-                              }}
-                            >
-                              <Typography
-                                sx={{
-                                  font: "Plus Jakarta Sans",
-                                  fontWeight: 500,
-                                  fontSize: "21px",
-                                  lineHeight: "21px",
-                                  letterSpacing: "0%",
-                                }}
-                              >
-                                {order.title}
-                              </Typography>
-                            </Box>
-
-                            <Box
-                              sx={{
-                                width: 327.3333435058594,
-                                height: 20,
-                                display: "flex",
-                                justifyContent: "space-between",
-                                mt: "16px",
-                              }}
-                            >
-                              <Box sx={{ width: 185 }}>
-                                <Typography
-                                  sx={{
-                                    font: "Plus Jakarta Sans",
-                                    fontWeight: 500,
-                                    fontSize: "16px",
-                                    lineHeight: "16px",
-                                    letterSpacing: "0%",
-                                    color: "#5F7388",
-                                  }}
-                                >
-                                  Origin
-                                </Typography>
-                              </Box>
-
-                              <Box sx={{ width: 142, display: "flex", gap: 1 }}>
-                                <Box
-                                  component="img"
-                                  src={india}
-                                  alt="img"
-                                  sx={{ width: 24, height: 24 }}
-                                />
-                                <Typography
-                                  sx={{
-                                    font: "Plus Jakarta Sans",
-                                    fontWeight: 500,
-                                    fontSize: "14px",
-                                    lineHeight: "20px",
-                                    letterSpacing: "0%",
-                                  }}
-                                >
-                                  {order.origin}
-                                </Typography>
-                              </Box>
-                            </Box>
-
-                            <Box
-                              sx={{
-                                width: 327.3333435058594,
-                                height: 20,
-                                display: "flex",
-                                justifyContent: "space-between",
-                                mt: "16px",
-                              }}
-                            >
-                              <Box sx={{ width: 185 }}>
-                                <Typography
-                                  sx={{
-                                    font: "Plus Jakarta Sans",
-                                    fontWeight: 500,
-                                    fontSize: "16px",
-                                    lineHeight: "16px",
-                                    letterSpacing: "0%",
-                                    color: "#5F7388",
-                                  }}
-                                >
-                                  Destination
-                                </Typography>
-                              </Box>
-
-                              <Box sx={{ width: 142, display: "flex", gap: 1 }}>
-                                <Box
-                                  component="img"
-                                  src={qatar}
-                                  alt="img"
-                                  sx={{ width: 24, height: 24 }}
-                                />
-
-                                <Typography
-                                  sx={{
-                                    font: "Plus Jakarta Sans",
-                                    fontWeight: 500,
-                                    fontSize: "14px",
-                                    lineHeight: "20px",
-                                    letterSpacing: "0%",
-                                  }}
-                                >
-                                  {order.destination}
-                                </Typography>
-                              </Box>
-                            </Box>
-
-                            <Box
-                              sx={{
-                                width: 327.3333435058594,
-                                height: 20,
-                                display: "flex",
-                                justifyContent: "space-between",
-                                mt: "16px",
-                              }}
-                            >
-                              <Box sx={{ width: 185 }}>
-                                <Typography
-                                  sx={{
-                                    font: "Plus Jakarta Sans",
-                                    fontWeight: 500,
-                                    fontSize: "16px",
-                                    lineHeight: "16px",
-                                    letterSpacing: "0%",
-                                    color: "#5F7388",
-                                  }}
-                                >
-                                  Lead Time
-                                </Typography>
-                              </Box>
-
-                              <Box sx={{ width: 142 }}>
-                                <Typography
-                                  sx={{
-                                    font: "Plus Jakarta Sans",
-                                    fontWeight: 500,
-                                    fontSize: "14px",
-                                    lineHeight: "20px",
-                                    letterSpacing: "0%",
-                                  }}
-                                >
-                                  {order.leadTime}
-                                </Typography>
-                              </Box>
-                            </Box>
-                          </CardContent>
-                        </Card>
-                      </Grid>
-                    ))}
-                  </Grid>
-                </Box>
-              </Box>
-            </Box>
-
-            {/*faviorite */}
-
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                width: "100%",
-                maxWidth: { md: "1000px", lg: 1020, xs: "290px", sm: 740 },
-                gap: "20px",
-                justifyContent: "center",
-              }}
-            >
-              <Box
-                sx={{
-                  width: "100%",
-                  height: 28,
-                  display: "flex",
-                  justifyContent: "space-between",
-                }}
-              >
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    height: 28,
-                  }}
-                >
-                  <Typography
-                    sx={{
-                      font: "Plus Jakarta Sans",
-                      fontWeight: 700,
-                      fontSize: {
-                        md: "26px",
-                        lg: "26px",
-                        sm: "26px",
-                        xs: "20px",
-                      },
-                      lineHeight: "28px",
-                      letterSpacing: 0,
-                    }}
-                  >
-                    Favorite Agents ({favorite?.length || 0})
-                  </Typography>{" "}
-                </Box>
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    height: 28,
-                  }}
-                >
-                  <Typography
-                    sx={{
-                      font: "Plus Jakarta Sans",
-                      fontWeight: 700,
-                      fontSize: "16px",
-                      lineHeight: "28px",
-                      cursor: "pointer",
-                      color: "#FF7A3A",
-                    }}
-                    onClick={() => setOpenFavoritePopup(true)}
-                  >
-                    View all
-                  </Typography>
-                </Box>
-              </Box>
-
-              <Box
-                sx={{
-                  display: "flex",
-                  width: "100%",
-                  gap: "24px",
-                  mt: "20px",
-                  overflowX: "auto",
-                  py: 3,
-                  "&::-webkit-scrollbar": {
-                    height: 0,
-                  },
-                  "&::-webkit-scrollbar-thumb": {
-                    bgcolor: "#FFFFFF",
-                  },
-                }}
-              >
-                <Grid container spacing={3} flexWrap="nowrap" sx={{ gap: 47 }}>
-                  {favorite.map((favorite, index) => (
-                    <Grid key={index}>
-                      <Card
-                        sx={{
-                          minWidth: 355.3333435058594,
-                          height: 210,
-                          borderRadius: "20px",
-                          border: "1px solid #EAECF0",
-                          mb: 2,
-                          transition: "all 0.25s ease",
-                          cursor: "pointer",
-                          "&:hover": {
-                            transform: "translateY(-6px)",
-                            boxShadow: "0px 8px 24px rgba(0,0,0,0.12)",
-                          },
-                        }}
-                      >
-                        <CardContent>
-                          <Box sx={{ width: 320.666748046875, height: 26 }}>
-                            <Typography
-                              sx={{
-                                font: "Plus Jakarta Sans",
-                                fontWeight: 500,
-                                fontSize: "21px",
-                                lineHeight: "21px",
-                                letterSpacing: "0%",
-                              }}
-                            >
-                              {favorite.title}
-                            </Typography>
-                          </Box>
-
-                          <Box
-                            sx={{
-                              width: 320.66,
-                              height: 24,
-                              gap: "14px",
-                              display: "flex",
-                              alignItems: "center",
-                              mt: "16px",
-                            }}
-                          >
-                            <Box
-                              component="img"
-                              src={mail}
-                              alt="img"
-                              sx={{ width: 20, height: 20 }}
-                            />
-
-                            <Typography
-                              sx={{
-                                font: "Plus Jakarta Sans",
-                                fontWeight: 500,
-                                fontSize: "18px",
-                                lineHeight: "100%",
-                                letterSpacing: 0,
-                                color: "#5F7388",
-                              }}
-                            >
-                              {favorite.mail}
-                            </Typography>
-                          </Box>
-
-                          <Box
-                            sx={{
-                              width: 320.666748046875,
-                              height: 49,
-                              gap: "11px",
-                              mt: 2,
-                            }}
-                          >
-                            <Box sx={{ width: 140, height: 18 }}>
-                              <Typography
-                                sx={{
-                                  font: "Plus Jakarta Sans",
-                                  fontWeight: 500,
-                                  fontSize: "14px",
-                                  lineHeight: "100%",
-                                  letterSpacing: 0,
-                                  color: "#5F7388",
-                                }}
-                              >
-                                Countryes of Activity
-                              </Typography>
-                            </Box>
-                            <Box
-                              sx={{
-                                width: 147,
-                                height: 20,
-                                display: "flex",
-                                gap: "6px",
-
-                                mt: 1,
-                              }}
-                            >
-                              <Box
-                                sx={{
-                                  width: 65,
-                                  height: 20,
-                                  gap: "4px",
-                                  display: "flex",
-                                }}
-                              >
-                                <Box
-                                  component="img"
-                                  src={india}
-                                  alt="img"
-                                  sx={{ width: 24, height: 24 }}
-                                />
-                                <Typography>{favorite.country1}</Typography>
-                              </Box>
-
-                              <Box
-                                sx={{
-                                  width: 65,
-                                  height: 20,
-                                  gap: "4px",
-                                  display: "flex",
-                                }}
-                              >
-                                <Box
-                                  component="img"
-                                  src={qatar}
-                                  alt="img"
-                                  sx={{ width: 24, height: 24 }}
-                                />
-                                <Typography>{favorite.country2}</Typography>
-                              </Box>
-                            </Box>
-                          </Box>
-
-                          <Box
-                            sx={{
-                              width: 320.666748046875,
-                              height: 20,
-                              gap: "11px",
-                              mt: "16px",
-                              display: "flex",
-                              justifyContent: "space-between",
-                            }}
-                          >
-                            <Box sx={{ width: 180.666748046875, height: 18 }}>
-                              <Typography
-                                sx={{
-                                  font: "Plus Jakarta Sans",
-                                  fontWeight: 500,
-                                  fontSize: "14px",
-                                  lineHeight: "100%",
-                                  letterSpacing: 0,
-                                }}
-                              >
-                                Services
-                              </Typography>
-                            </Box>
-                            <Box sx={{ width: 129, height: 18 }}>
-                              <Typography
-                                sx={{
-                                  font: "Plus Jakarta Sans",
-                                  fontWeight: 500,
-                                  fontSize: "12px",
-                                  fontStyle: "Medium",
-                                  lineHeight: "20px",
-                                  letterSpacing: 0,
-                                  color: "#FC5722",
-                                }}
-                              >
-                                {favorite.services}
-                              </Typography>
-                            </Box>
-                          </Box>
-                        </CardContent>
-                      </Card>
-                    </Grid>
-                  ))}
-                </Grid>
-              </Box>
-            </Box>
-
-            {/* liked services */}
-
-            <Box
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                width: "100%",
-                maxWidth: { md: "1000px", lg: 1020, xs: "280px", sm: 740 },
-                gap: "20px",
-                justifyContent: "center",
-              }}
-            >
-              <Box sx={{ width: "auto", maxWidth: "1000px", height: 28 }}>
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    height: 28,
-                  }}
-                >
-                  <Typography
-                    sx={{
-                      font: "Plus Jakarta Sans",
-                      fontWeight: 700,
-                      fontSize: "26px",
-                      lineHeight: "28px",
-                      letterSpacing: 0,
-                    }}
-                  >
-                    Liked Sevices ({liked?.length || 0})
-                  </Typography>
-                  <Typography
-                    sx={{
-                      font: "Plus Jakarta Sans",
-                      fontWeight: 700,
-                      fontSize: "16px",
-                      lineHeight: "28px",
-                      cursor: "pointer",
-                      color: "#FF7A3A",
-                    }}
-                    onClick={() => setOpenLikedPopup(true)}
-                  >
-                    View all
-                  </Typography>
-                </Box>
-              </Box>
-              <Box
-                sx={{
-                  display: "flex",
-                  gap: "24px",
-                  mt: "20px",
-                  overflowX: "auto",
-                  py: 3,
-                  "&::-webkit-scrollbar": {
-                    height: 0,
-                  },
-                  "&::-webkit-scrollbar-thumb": {
-                    bgcolor: "#FFFFFF",
-                  },
-                }}
-              >
-                {liked.map((liked, index) => (
-                  <Card
                     key={index}
                     sx={{
-                      minWidth: 356,
-                      height: 410,
-                      borderRadius: "10px",
-                      border: "1px solid #EAECF0",
-                      mb: 2,
-                      transition: "all 0.25s ease",
-                      cursor: "pointer",
-                      "&:hover": {
-                        transform: "translateY(-6px)",
-                        boxShadow: "0px 8px 24px rgba(0,0,0,0.12)",
-                      },
+                      minWidth: { xs: 260, sm: 300, md: 355 },
+                      flexShrink: 0,
                     }}
                   >
-                    <CardContent>
-                      <Box
-                        sx={{
-                          width: 324,
-                          height: 370,
-                          gap: "16px",
-                        }}
-                      >
-                        <Box
-                          component="img"
-                          alt="img"
-                          src={liked.image}
-                          sx={{
-                            width: 324,
-                            height: 192,
-                            borderRadius: "8px",
-                            color: "#EBEBEB",
-                          }}
-                        />
-                        <Box sx={{ width: 324, height: 162, gap: "11px" }}>
-                          <Box
-                            sx={{
-                              height: 26,
-                              width: 324,
-                              gap: "12px",
-                              display: "flex",
-                              mt: "16px",
-                            }}
-                          >
-                            <Box sx={{ width: 230, height: 23 }}>
-                              <Typography
-                                sx={{
-                                  font: "Plus Jakarta Sans",
-                                  fontWeight: 600,
-                                  fontSize: "18px",
-                                }}
-                              >
-                                {liked.title}
-                              </Typography>
-                            </Box>
-                            <Box
-                              sx={{
-                                width: 82,
-                                height: 26,
-                                borderRadius: "16px",
-                                border: "1px solid #E5D5D5",
-                                display: "flex",
-                                alignItems: "center",
-                                gap: "4px",
-                              }}
-                            >
-                              <Box
-                                component="img"
-                                alt="img"
-                                src={star}
-                                sx={{ width: 18, height: 18, ml: "7.5px" }}
-                              />
-                              <Box
-                                sx={{
-                                  width: 48,
-                                  height: 18,
-                                  display: "flex",
-                                  alignItems: "center",
-                                }}
-                              >
-                                <Typography
-                                  sx={{
-                                    fontFamily: "Plus Jakarta Sans",
-                                    fontWeight: 600,
-                                    fontSize: "14px",
-                                    lineHeight: "100%",
-                                    letterSpacing: 0,
-                                  }}
-                                >
-                                  {liked.rating}
-                                  <span
-                                    style={{
-                                      fontFamily: "Plus Jakarta Sans",
-                                      fontWeight: 600,
-                                      fontSize: "9px",
-                                      lineHeight: "100%",
-                                      letterSpacing: 0,
-                                    }}
-                                  >
-                                    {" "}
-                                    {liked.rating1}
-                                  </span>
-                                </Typography>
-                              </Box>
-                            </Box>
-                          </Box>
-                          <Box
-                            sx={{
-                              width: 324,
-                              height: 20,
-                              gap: "12px",
-                              mt: "11px",
-                            }}
-                          >
-                            <Typography
-                              sx={{
-                                width: 129,
-                                height: 20,
-                                style: "Medium",
-                                font: "Plus Jakarta Sans",
-                                fontWeight: 500,
-                                fontSize: "12px",
-                                lineHeight: "20px",
-
-                                color: "#FC5722",
-                              }}
-                            >
-                              {liked.services}
-                            </Typography>
-                          </Box>
-
-                          <Box
-                            sx={{
-                              width: 324,
-                              height: 24,
-                              gap: "12px",
-                              display: "flex",
-                              mt: "15.5px",
-                              alignItems: "center",
-                              justifyContent: "space-between",
-                            }}
-                          >
-                            <Box sx={{ width: 187, height: 15 }}>
-                              <Typography
-                                sx={{
-                                  font: "Plus Jakarta Sans",
-                                  fontWeight: 500,
-                                  fontStyle: "Medium",
-                                  fontSize: "12px",
-                                  lineHeight: "100%",
-                                  letterSpacing: 0,
-                                  color: "#5F7388",
-                                }}
-                              >
-                                City/Country
-                              </Typography>
-                            </Box>
-                            <Box
-                              sx={{
-                                width: 125,
-                                height: 24,
-                                gap: "8px",
-                                display: "flex",
-                              }}
-                            >
-                              <Box
-                                component="img"
-                                alt="img"
-                                src={india}
-                                sx={{ width: 24, height: 24 }}
-                              />
-                              <Box sx={{ width: 93, height: 20 }}>
-                                <Typography
-                                  sx={{
-                                    font: "Plus Jakarta Sans",
-                                    fontWeight: 500,
-                                    fontStyle: "Medium",
-                                    fontSize: "14px",
-                                    lineHeight: "20px",
-                                  }}
-                                >
-                                  {liked.city}, {liked.country}
-                                </Typography>
-                              </Box>
-                            </Box>
-                          </Box>
-                          <Box
-                            sx={{
-                              width: 324,
-                              height: 24,
-                              gap: "12px",
-                              mt: "15.5px",
-                              display: "flex",
-                              alignItems: "center",
-                              justifyContent: "space-between",
-                            }}
-                          >
-                            <Box sx={{ width: 154, height: 15 }}>
-                              <Typography
-                                sx={{
-                                  font: "Plus Jakarta Sans",
-                                  fontWeight: 500,
-                                  fontSize: "12px",
-                                  lineHeight: "100%",
-                                  letterSpacing: 0,
-                                  color: "#5F7388",
-                                }}
-                              >
-                                Destination
-                              </Typography>
-                            </Box>
-                            <Box
-                              sx={{
-                                width: 158,
-                                height: 24,
-                                gap: "8px",
-                                display: "flex",
-                                alignItems: "center",
-                              }}
-                            >
-                              <Box
-                                component="img"
-                                alt="img"
-                                src={doha}
-                                sx={{ width: 24, height: 24 }}
-                              />
-                              <Box sx={{ width: 126, height: 20 }}>
-                                <Typography
-                                  sx={{
-                                    font: "Plus Jakarta Sans",
-                                    fontWeight: 500,
-                                    fontSize: "14px",
-                                    lineHeight: "20px",
-                                    letterSpacing: 0,
-                                  }}
-                                >
-                                  {liked.destination}
-                                </Typography>
-                              </Box>
-                            </Box>
-                          </Box>
-
-                          <Box
-                            sx={{
-                              width: 324,
-                              height: 24,
-                              gap: "12px",
-                              mt: "15.5px",
-                              display: "flex",
-                              alignItems: "center",
-                            }}
-                          >
-                            <Box
-                              sx={{
-                                width: 211,
-                                height: 20,
-                                display: "flex",
-                                alignItems: "center",
-                              }}
-                            >
-                              <Box sx={{ width: 34, height: 15 }}>
-                                <Typography
-                                  sx={{
-                                    font: "Plus Jakarta Sans",
-                                    fontWeight: 500,
-                                    fontSize: "12px",
-                                    lineHeight: "100%",
-                                    letterSpacing: 0,
-                                    color: "#5F7388",
-                                  }}
-                                >
-                                  From
-                                </Typography>
-                              </Box>
-                              <Box sx={{ width: 177, height: 20 }}>
-                                <Typography
-                                  sx={{
-                                    font: "Plus Jakarta Sans",
-                                    fontWeight: 700,
-                                    fontSize: "12px",
-                                    lineHeight: "20px",
-                                    letterSpacing: 0,
-                                  }}
-                                >
-                                  {liked.from}
-                                </Typography>
-                              </Box>
-                            </Box>
-
-                            <Box
-                              sx={{
-                                width: 101,
-                                height: 24,
-                                gap: "12px",
-                                display: "flex",
-                                alignItems: "center",
-                              }}
-                            >
-                              <Box sx={{ width: 34, height: 15 }}>
-                                <Typography
-                                  sx={{
-                                    fontFamily: "Plus Jakarta Sans",
-                                    fontWeight: 500,
-                                    fontSize: "12px",
-                                    lineHeight: "100%",
-                                    letterSpacing: 0,
-                                    color: "#5F7388",
-                                  }}
-                                >
-                                  Mode
-                                </Typography>
-                              </Box>
-                              <Box
-                                sx={{
-                                  width: 55,
-                                  height: 24,
-                                  gap: "10px",
-                                  display: "flex",
-                                  alignItems: "center",
-                                }}
-                              >
-                                <Box
-                                  component="img"
-                                  alt="img"
-                                  src={air}
-                                  sx={{ width: 24, height: 24 }}
-                                />
-                                <Typography
-                                  sx={{
-                                    font: "Plus Jakarta Sans",
-                                    fontWeight: 700,
-                                    fontSize: "12px",
-                                    lineHeight: "20px",
-                                    letterSpacing: 0,
-                                  }}
-                                >
-                                  {liked.mode}
-                                </Typography>
-                              </Box>
-                            </Box>
-                          </Box>
-                        </Box>
-                      </Box>
-                    </CardContent>
-                  </Card>
+                    <OrderCard order={order} />
+                  </Box>
                 ))}
-              </Box>
+              </HorizontalScrollSection>
             </Box>
 
-            {/*  */}
+            {/* Favorite Agents */}
+            <Box sx={{ mb: 0 }}>
+              <SectionHeader
+                title="Favorite Agents"
+                count={favorite.length}
+                onViewAll={() => setOpenFavoritePopup(true)}
+              />
+              <HorizontalScrollSection>
+                {favorite.map((item, index) => (
+                  <Box
+                    key={index}
+                    sx={{
+                      minWidth: { xs: 260, sm: 300, md: 355 },
+                      flexShrink: 0,
+                    }}
+                  >
+                    <FavoriteCard item={item} />
+                  </Box>
+                ))}
+              </HorizontalScrollSection>
+            </Box>
+
+            {/* Liked Services */}
+            <Box sx={{ mb: 0 }}>
+              <SectionHeader
+                title="Liked Services"
+                count={liked.length}
+                onViewAll={() => setOpenLikedPopup(true)}
+              />
+              <HorizontalScrollSection>
+                {liked.map((item, index) => (
+                  <Box
+                    key={index}
+                    sx={{
+                      minWidth: { xs: 260, sm: 300, md: 356 },
+                      flexShrink: 0,
+                    }}
+                  >
+                    <LikedCard item={item} />
+                  </Box>
+                ))}
+              </HorizontalScrollSection>
+            </Box>
           </Container>
         </Box>
       </Box>
